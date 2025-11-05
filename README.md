@@ -26,7 +26,7 @@ Follows MVC structure, where:
   - [ ] equipment
   - [ ] response
 - View
-  - [D] login (optional)
+  [-] login (optional)
   - [ ] transactions menu
   - [ ] transaction 1:
   - [ ] transaction 2:
@@ -45,3 +45,4 @@ Follows MVC structure, where:
 - Java Layouts
 
   - https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html
+
