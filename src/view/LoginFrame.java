@@ -16,7 +16,7 @@ import javax.swing.*;
 public class LoginFrame extends JPanel {
     /* UI COMPONENTS */
     private JLabel titleLabel;              // panel title
-    private JLabel usernameLabel;               // name label
+    private JLabel usernameLabel;           // name label
     private JLabel passwordLabel;           // password label
     private JButton loginButton;            // login button
     public JTextField nameField;            // name textfield
