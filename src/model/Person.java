@@ -8,7 +8,6 @@ public abstract class Person {
     private String firstName;
     private String middleName;
     private String gender;
-    private int age;
     private Date dateOfBirth;
     private String civilStatus;
     private int contactNumber;
@@ -36,10 +35,6 @@ public abstract class Person {
 
     public String getGender() {
         return gender;
-    }
-
-    public int getAge() {
-        return age;
     }
 
     public Date getDateOfBirth() {
@@ -72,10 +67,6 @@ public abstract class Person {
 
     public void setGender(String gender) {
         this.gender = gender;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     public void setDateOfBirth(Date dateOfBirth) {
