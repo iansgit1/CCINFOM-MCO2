@@ -14,6 +14,8 @@ Follows MVC structure, where:
 
   
 ## Notes
+- BorrowEquipment is unfinished
+- I haven't made the changes based on ms' comments :)
 - I think transactions are still subject to change
 - Don't forget to error check (input validation)
 

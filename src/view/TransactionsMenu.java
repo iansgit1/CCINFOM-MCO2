@@ -9,7 +9,7 @@ package view;
 
 import javax.swing.*;
 import java.awt.*;
-
+import java.awt.event.*;
 
 public class TransactionsMenu extends JPanel {
     /* UI Components */
@@ -97,5 +97,9 @@ public class TransactionsMenu extends JPanel {
     private void setupButton(JButton btn) {
         btn.setPreferredSize(new Dimension(300, 50));               // this sets the button length so that they are uniform
         btn.setFocusPainted(false);
+    }
+
+    private void setActionListener(ActionListener listener) {
+        btnT4.addActionListener(listener);
     }
 }
