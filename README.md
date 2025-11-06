@@ -43,7 +43,8 @@ Follows MVC structure, where:
 - Project Wireframe
   - https://www.figma.com/design/6sUrWmSbpCk0XMCQJZKLRi/-INFOM--MCO2-wireframe---prototype?node-id=0-1&t=4y4khbw5qCWpUoUR-1
 - Java Layouts
-
   - https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html
-
-
+- LSCS Java + SQL tutorial materials
+  - https://drive.google.com/file/d/1BuI93fJYXsNNm50uqeoPv6Oef86wi4LL/view?usp=sharing
+  - https://github.com/Pierre120/Java_Meets_SQL.git
+  
