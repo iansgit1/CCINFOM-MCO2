@@ -1,9 +1,10 @@
 /**
- *  This contains the Borrow Equipment panel, where users can borrow available equipment by
- *  specifying its name, the quanitity, the borrower's name, and the current date.
+ *  This contains the Return Equipment panel, where users can the equipment they've used
+ *  by specifying its name, the quanitity, the borrower's name, and the current date.
  * 
  *  Notes:
- *  - not connected to a database yet
+ *  - should update db when Borrow button is pressed
+ *  - extra: should return success message
 */
 
 package view;
@@ -14,7 +15,7 @@ import java.awt.*;
 import model.Equipment;
 
 
-public class BorrowEquipment extends JPanel {
+public class ReturnEquipment extends JPanel {
     /* ATTRIBUTES */
     private Equipment[] equipment;
     // NOTE : these should come from the database; remove sometime soon
@@ -24,12 +25,11 @@ public class BorrowEquipment extends JPanel {
                                         {"Life Vests", "3", "Available"},
                                         {"FlashLight", "1", "Available"}};
 
-             
+
     /* UI COMPONENTS */
     private JLabel titleLabel = new JLabel();
-    private JTable equipmentTable;
     private JButton backButton = new JButton();
-    private JButton returnButton = new JButton();
+    private JButton borrowButton = new JButton();
 
 
     public static final String equipmentlbl = "Equipment Name";
@@ -37,14 +37,14 @@ public class BorrowEquipment extends JPanel {
     public static final String availabilitylbl = "Availability";
 
 
-    public BorrowEquipment() {
+    public ReturnEquipment() {
         /* panel settings */
         setLayout(new BorderLayout());
         setBackground(Color.WHITE);
         
         /* title panel */
         JPanel titlePanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        titleLabel.setText("Borrow Equipment");
+        titleLabel.setText("Return Equipment");
         titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
         titleLabel.setForeground(Color.BLACK);
         titlePanel.add(titleLabel);
@@ -58,19 +58,12 @@ public class BorrowEquipment extends JPanel {
         gbcButtons.anchor = GridBagConstraints.CENTER;
 
         backButton = new JButton("Back");
-        returnButton = new JButton("Borrow");
+        borrowButton = new JButton("Borrow");
 
         buttonPanel.add(backButton, gbcButtons);
         gbcButtons.gridx = 1;
-        buttonPanel.add(returnButton, gbcButtons);
+        buttonPanel.add(borrowButton, gbcButtons);
         gbcButtons.gridx = 2;
-
-        /* table panel */
-        JPanel tablePanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        equipmentTable = new JTable(sample, colNames);
-        JScrollPane scrollPane = new JScrollPane(equipmentTable);
-        scrollPane.setPreferredSize(new Dimension(600,250));
-        tablePanel.add(scrollPane);
 
         /* equipment specifications panel */
         JPanel equipmentSpecsPanel = new JPanel(new GridBagLayout());
@@ -120,11 +113,7 @@ public class BorrowEquipment extends JPanel {
 
 
         /* combine all panels */
-        JPanel centerPanel = new JPanel();
-        centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
-        centerPanel.add(tablePanel);
-        centerPanel.add(equipmentSpecsPanel);
-        add(centerPanel, BorderLayout.CENTER);   
+        add(equipmentSpecsPanel, BorderLayout.CENTER);   
         add(titlePanel, BorderLayout.NORTH);
         add(buttonPanel, BorderLayout.SOUTH);
     }
@@ -134,8 +123,8 @@ public class BorrowEquipment extends JPanel {
         return backButton;
     }
 
-    /* gets the return button */
+    /* gets the borrow button */
     public JButton getBorrowButton() {
-        return returnButton;
+        return borrowButton;
     }
 }

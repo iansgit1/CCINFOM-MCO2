@@ -33,8 +33,8 @@ Follows MVC structure, where:
   - [ ] transaction 1:
   - [ ] transaction 2:
   - [ ] transaction 3:
-  - [x] transaction 4:
-  - [ ] transaction n:
+  - [x] transaction 4: borrow equipment
+  - [x] transaction 5: return equipment
   - [ ] reports
     - [ ] response report
     - [ ] shelter occupancy report
@@ -44,6 +44,8 @@ Follows MVC structure, where:
 
 ## Logs
 [Nov 10 (8PM)] : finished BorrowEquipment UI
+[Nov 10 (8:20PM)] : finished ReturnEquipment UI
+
 
 ## Useful Stuff
 - Project Wireframe

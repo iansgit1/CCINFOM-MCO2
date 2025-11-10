@@ -22,6 +22,7 @@ public class MainFrame extends JFrame {
     private LoginFrame loginFrame;
     private TransactionsMenu transactionsMenu;
     private BorrowEquipment borrowEquipment;
+    private ReturnEquipment returnEquipment;
 
 
 
@@ -42,18 +43,22 @@ public class MainFrame extends JFrame {
         loginFrame = new LoginFrame();
         transactionsMenu = new TransactionsMenu();
         borrowEquipment = new BorrowEquipment();
+        returnEquipment = new ReturnEquipment();
         // ADD : individual transaction frames
 
         /* add frames to card layout */
         mainPanel.add(loginFrame, "login");
         mainPanel.add(transactionsMenu, "transactions");
         mainPanel.add(borrowEquipment, "borrow equipment");
+        mainPanel.add(returnEquipment, "return equipment");
         // ADD : other transaction frames
 
         /* redirections : this might be in controller instead of here */
         loginFrame.getLoginButton().addActionListener(e -> showTransactionsMenu());
-        transactionsMenu.getBtnT4().addActionListener(e -> showBorrowEquipmentFrame());
+        transactionsMenu.getBtnT4().addActionListener(e -> showBorrowEquipmentPane());
+        transactionsMenu.getBtnT5().addActionListener(e -> showReturnEquipmentPane());
         borrowEquipment.getBackButton().addActionListener(e -> showTransactionsMenu());
+        returnEquipment.getBackButton().addActionListener(e -> showTransactionsMenu());
 
         /* add mainPanel to Frame */
         add(mainPanel);
@@ -66,8 +71,13 @@ public class MainFrame extends JFrame {
         cardLayout.show(mainPanel, "transactions");
     }
 
-    /* leads to borrow equipment frame */
-    private void showBorrowEquipmentFrame() {
+    /* leads to borrow equipment pane */
+    private void showBorrowEquipmentPane() {
         cardLayout.show(mainPanel, "borrow equipment");
+    }
+
+    /* leads to return equipment pane */
+    private void showReturnEquipmentPane() {
+        cardLayout.show(mainPanel, "return equipment");
     }
 }
