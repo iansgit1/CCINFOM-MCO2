@@ -1,28 +1,26 @@
 /**
+ *  This contains the Borrow Equipment panel, where users can borrow available equipment by
+ *  specifying its name, the quanitity, the borrower's name, and the current date.
+ * 
  *  Notes:
- *  - unfinished
- *  - use JTable, JScrollPane, JComboBox (dropdown list), JCalendar
- *  - try this: https://toedter.com/jcalendar/
+ *  - not connected to a database yet
 */
 
 package view;
 
 import javax.swing.*;
+import java.awt.*;
 
 import model.Equipment;
 
-import java.awt.*;;
 
 public class BorrowEquipment extends JPanel {
     /* ATTRIBUTES */
-    private Equipment equipment[];
+    private Equipment[] equipment;
 
     /* UI COMPONENTS */
     private JLabel titleLabel = new JLabel();
-    private JTable equipmentTable = new JTable();
-    private JLabel equipmentLabel = new JLabel();
-    private JLabel quantityLabel = new JLabel();
-    private JLabel availabilityLabel = new JLabel();
+    private JTable equipmentTable;
     private JButton backButton = new JButton();
     private JButton borrowButton = new JButton();
 
@@ -33,19 +31,112 @@ public class BorrowEquipment extends JPanel {
 
 
     public BorrowEquipment() {
+        /* panel settings */
         setLayout(new BorderLayout());
         setBackground(Color.WHITE);
         
-
+        /* title panel */
         JPanel titlePanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         titleLabel.setText("Borrow Equipment");
         titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
         titleLabel.setForeground(Color.BLACK);
         titlePanel.add(titleLabel);
 
-        JPanel centerPanel = new JPanel();
-        centerPanel.add(titlePanel);
+        /* buttons panel */
+        JPanel buttonPanel = new JPanel(new GridBagLayout());
+        GridBagConstraints gbcButtons = new GridBagConstraints();
+        gbcButtons.insets = new Insets(10, 200, 10, 200);
+        gbcButtons.gridx = 0;
+        gbcButtons.gridy = 0;
+        gbcButtons.anchor = GridBagConstraints.CENTER;
+
+        backButton = new JButton("Back");
+        borrowButton = new JButton("Borrow");
+
+        buttonPanel.add(backButton, gbcButtons);
+        gbcButtons.gridx = 1;
+        buttonPanel.add(borrowButton, gbcButtons);
+        gbcButtons.gridx = 2;
+
+        /* table panel */
+        JPanel tablePanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+
+        // NOTE : these should come from the database; remove sometime soon
+        String[] colNames = new String[] {"Equipment Name", "Quantity", "Availability"};
+        String[][] sample = new String[][] {{"Medical Kits", "2", "Available"},
+                                            {"Ambulance", "0", "Not Available"},
+                                            {"Life Vests", "3", "Available"},
+                                            {"FlashLight", "1", "Available"}};
         
-        add(centerPanel, BorderLayout.CENTER);
+        equipmentTable = new JTable(sample, colNames);
+        JScrollPane scrollPane = new JScrollPane(equipmentTable);
+        scrollPane.setPreferredSize(new Dimension(600,250));
+        tablePanel.add(scrollPane);
+
+        /* equipment specifications panel */
+        JPanel equipmentSpecsPanel = new JPanel(new GridBagLayout());
+        GridBagConstraints gbcSpecs = new GridBagConstraints();
+        gbcSpecs.insets = new Insets(10, 10, 10, 10);
+        gbcSpecs.anchor = GridBagConstraints.WEST;
+
+        JLabel itemLabel = new JLabel("Item:");
+        JComboBox itemField = new JComboBox<>(sample);                      // NOTE : change this too; it should come from the db
+        // JTextField itemField = new JTextField(19);                       // aternative
+
+        JLabel qtyLabel = new JLabel("Quantity:");
+        JTextField qtyField = new JTextField(19);                   // NOTE : add input validation
+
+        JLabel borrowerLabel = new JLabel("Borrower:");
+        JComboBox borrowerField = new JComboBox<>(sample);                  // NOTE : change this too; it should come from the db
+        // JTextField borrowerField = new JTextField(19);                   // alternative -> should have input validation
+
+        JLabel dateLabel = new JLabel("Date:");
+        JTextField dateField = new JTextField(19);
+        dateField.setText("dd/MM/yyyy");
+
+        gbcSpecs.gridx = 0; 
+        gbcSpecs.gridy = 0;
+        equipmentSpecsPanel.add(itemLabel, gbcSpecs);
+        gbcSpecs.gridx = 1;
+        equipmentSpecsPanel.add(itemField, gbcSpecs);
+
+        gbcSpecs.gridx = 0; 
+        gbcSpecs.gridy = 1;
+        equipmentSpecsPanel.add(qtyLabel, gbcSpecs);
+        gbcSpecs.gridx = 1;
+        equipmentSpecsPanel.add(qtyField, gbcSpecs);
+
+        gbcSpecs.gridx = 0; 
+        gbcSpecs.gridy = 2;
+        equipmentSpecsPanel.add(borrowerLabel, gbcSpecs);
+        gbcSpecs.gridx = 1;
+        equipmentSpecsPanel.add(borrowerField, gbcSpecs);
+
+        gbcSpecs.gridx = 0; 
+        gbcSpecs.gridy = 3;
+        equipmentSpecsPanel.add(dateLabel, gbcSpecs);
+        gbcSpecs.gridx = 1;
+        equipmentSpecsPanel.add(dateField, gbcSpecs);
+
+
+
+        /* combine all panels */
+        JPanel centerPanel = new JPanel();
+        centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
+        centerPanel.add(tablePanel);
+        centerPanel.add(equipmentSpecsPanel);
+        add(centerPanel, BorderLayout.CENTER);   
+        add(titlePanel, BorderLayout.NORTH);
+        add(buttonPanel, BorderLayout.SOUTH);
+    }
+
+    /* gets the back button */
+    public JButton getBackButton() {
+        return backButton;
+    }
+
+    /* gets the borrow button */
+    public JButton getBorrowButton() {
+        return borrowButton;
     }
 }

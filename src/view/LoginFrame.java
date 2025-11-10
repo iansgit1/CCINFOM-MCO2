@@ -15,12 +15,12 @@ import javax.swing.*;
 
 public class LoginFrame extends JPanel {
     /* UI COMPONENTS */
-    private JLabel titleLabel;              // panel title
-    private JLabel usernameLabel;           // name label
-    private JLabel passwordLabel;           // password label
-    private JButton loginButton;            // login button
-    public JTextField nameField;            // name textfield
-    public JPasswordField passwordField;    // password textfield
+    private JLabel titleLabel;        
+    private JLabel usernameLabel;     
+    private JLabel passwordLabel;    
+    private JButton loginButton; 
+    public JTextField nameField;          
+    public JPasswordField passwordField; 
     
     public static final String LOGIN = "login";
 

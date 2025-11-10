@@ -9,7 +9,7 @@ package view;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
+
 
 public class TransactionsMenu extends JPanel {
     /* UI Components */
@@ -50,7 +50,7 @@ public class TransactionsMenu extends JPanel {
         setupButton(btnT1);
         setupButton(btnT2);
         setupButton(btnT3);
-        setupButton(btnT4);
+        setupButton(btnT4);                                                     // borrow equipment
         setupButton(btnT5);
         setupButton(btnReports);
 
@@ -93,13 +93,39 @@ public class TransactionsMenu extends JPanel {
     }
 
 
-    /* BUTTON PREFERENCES */
+    /* button preferences */
     private void setupButton(JButton btn) {
         btn.setPreferredSize(new Dimension(300, 50));               // this sets the button length so that they are uniform
         btn.setFocusPainted(false);
     }
 
-    private void setActionListener(ActionListener listener) {
-        btnT4.addActionListener(listener);
+    /* gets button or transaction 1 */
+    public JButton getBtnT1() {
+        return btnT1;
+    }
+
+    /* gets button or transaction 2 */
+    public JButton getBtnT2() {
+        return btnT2;
+    }
+
+    /* gets button or transaction 3 */
+    public JButton getBtnT3() {
+        return btnT3;
+    }
+
+    /* gets button or transaction 4 */
+    public JButton getBtnT4() {
+        return btnT4;
+    }
+
+    /* gets button or transaction 5 */
+    public JButton getBtnT5() {
+        return btnT5;
+    }
+
+    /* gets view report button */
+    public JButton getBtnReports() {
+        return btnReports;
     }
 }

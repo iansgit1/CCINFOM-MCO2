@@ -1,5 +1,6 @@
 ## Read Me
 Hi guys! We can use this repo to collaboratively work on MCO2 DB App.
+I'm currently working on Return Equipment UI.
 
 
 ## Folder Structure
@@ -14,7 +15,6 @@ Follows MVC structure, where:
 
   
 ## Notes
-- BorrowEquipment is unfinished
 - I haven't made the changes based on ms' comments :)
 - I think transactions are still subject to change
 - Don't forget to error check (input validation)
@@ -29,17 +29,21 @@ Follows MVC structure, where:
   - [ ] response
 - View
   - [x] login (optional)
-  - [ ] transactions menu
+  - [x] transactions menu
   - [ ] transaction 1:
   - [ ] transaction 2:
   - [ ] transaction 3:
-  - [ ] transaction 4:
+  - [x] transaction 4:
   - [ ] transaction n:
   - [ ] reports
     - [ ] response report
     - [ ] shelter occupancy report
     - [ ] equipment report
 - Controller
+
+
+## Logs
+[Nov 10 (8PM)] : finished BorrowEquipment UI
 
 ## Useful Stuff
 - Project Wireframe
