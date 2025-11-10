@@ -29,7 +29,7 @@ public class ReturnEquipment extends JPanel {
     /* UI COMPONENTS */
     private JLabel titleLabel = new JLabel();
     private JButton backButton = new JButton();
-    private JButton borrowButton = new JButton();
+    private JButton returnButton = new JButton();
 
 
     public static final String equipmentlbl = "Equipment Name";
@@ -58,11 +58,11 @@ public class ReturnEquipment extends JPanel {
         gbcButtons.anchor = GridBagConstraints.CENTER;
 
         backButton = new JButton("Back");
-        borrowButton = new JButton("Borrow");
+        returnButton = new JButton("Return");
 
         buttonPanel.add(backButton, gbcButtons);
         gbcButtons.gridx = 1;
-        buttonPanel.add(borrowButton, gbcButtons);
+        buttonPanel.add(returnButton, gbcButtons);
         gbcButtons.gridx = 2;
 
         /* equipment specifications panel */
@@ -72,19 +72,20 @@ public class ReturnEquipment extends JPanel {
         gbcSpecs.anchor = GridBagConstraints.WEST;
 
         JLabel itemLabel = new JLabel("Item:");
-        JComboBox itemField = new JComboBox<>(sample);                      // NOTE : change this too; it should come from the db
-        // JTextField itemField = new JTextField(19);                       // aternative
+        JComboBox itemField = new JComboBox<Equipment[]>();                     // NOTE : change this too; it should come from the db
+        itemField.setPreferredSize(new Dimension(255, 25));
+        // JTextField itemField = new JTextField(20);                           // aternative
 
         JLabel qtyLabel = new JLabel("Quantity:");
-        JTextField qtyField = new JTextField(19);                   // NOTE : add input validation
+        JTextField qtyField = new JTextField(20);                       // NOTE : add input validation
 
         JLabel borrowerLabel = new JLabel("Borrower:");
-        JComboBox borrowerField = new JComboBox<>(sample);                  // NOTE : change this too; it should come from the db
-        // JTextField borrowerField = new JTextField(19);                   // alternative -> should have input validation
+        JComboBox borrowerField = new JComboBox<Equipment[]>();                 // NOTE : change this too; it should come from the db; it should be Resident<>
+        borrowerField.setPreferredSize(new Dimension(255, 25));
+        // JTextField borrowerField = new JTextField(20);                       // alternative -> should have input validation
 
-        JLabel dateLabel = new JLabel("Date:");
-        JTextField dateField = new JTextField(19);
-        dateField.setText("dd/MM/yyyy");
+        JLabel dateLabel = new JLabel("Date (dd/MM/yyy):");
+        JTextField dateField = new JTextField(20);
 
         gbcSpecs.gridx = 0; 
         gbcSpecs.gridy = 0;
@@ -124,7 +125,7 @@ public class ReturnEquipment extends JPanel {
     }
 
     /* gets the borrow button */
-    public JButton getBorrowButton() {
-        return borrowButton;
+    public JButton getReturnButton() {
+        return returnButton;
     }
 }

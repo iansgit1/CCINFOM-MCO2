@@ -79,19 +79,20 @@ public class BorrowEquipment extends JPanel {
         gbcSpecs.anchor = GridBagConstraints.WEST;
 
         JLabel itemLabel = new JLabel("Item:");
-        JComboBox itemField = new JComboBox<>(sample);                      // NOTE : change this too; it should come from the db
-        // JTextField itemField = new JTextField(19);                       // aternative
+        JComboBox itemField = new JComboBox<>(sample);                              // NOTE : change this too; it should come from the db
+        itemField.setPreferredSize(new Dimension(255, 25));
+        // JTextField itemField = new JTextField(20);                               // aternative
 
         JLabel qtyLabel = new JLabel("Quantity:");
-        JTextField qtyField = new JTextField(19);                   // NOTE : add input validation
+        JTextField qtyField = new JTextField(20);                           // NOTE : add input validation
 
         JLabel borrowerLabel = new JLabel("Borrower:");
-        JComboBox borrowerField = new JComboBox<>(sample);                  // NOTE : change this too; it should come from the db
-        // JTextField borrowerField = new JTextField(19);                   // alternative -> should have input validation
+        JComboBox borrowerField = new JComboBox<>(sample);                          // NOTE : change this too; it should come from the db
+        borrowerField.setPreferredSize(new Dimension(255, 25));
+        // JTextField borrowerField = new JTextField(20);                           // alternative -> should have input validation
 
-        JLabel dateLabel = new JLabel("Date:");
-        JTextField dateField = new JTextField(19);
-        dateField.setText("dd/MM/yyyy");
+        JLabel dateLabel = new JLabel("Date (dd/MM/yyy):");
+        JTextField dateField = new JTextField(20);
 
         gbcSpecs.gridx = 0; 
         gbcSpecs.gridy = 0;
