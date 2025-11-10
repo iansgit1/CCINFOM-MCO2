@@ -1,6 +1,6 @@
 ## Read Me
 Hi guys! We can use this repo to collaboratively work on MCO2 DB App.
-I'm currently working on Return Equipment UI.
+I'm currently making the wireframes for the other transactions' wireframes.
 
 
 ## Folder Structure
@@ -8,7 +8,18 @@ Follows MVC structure, where:
 
 - `src`: the folder to maintain sources
   - `model`
+    - Person.java
+      - Resident.java
+      - Employee.java
+    - Equipment.java
+    - Shelter.java
   - `view`
+    - MainFrame.java          | where all panels are called
+    - LoginFrame.jave         | where users (employees) can log in
+    - TransactionsMenu.java   | where users can choose from the transaction options
+    - AssignToSheleter.java   | where resident can be assigned to an available shelter
+    - BorrowEquipment.java    | where users can borrow equipment
+    - ReturnEquipment.jave    | where users can return equipment
   - `controller`
 - `lib`: the folder to maintain dependencies
 - `bin`: the folder to compiled output files
@@ -21,11 +32,11 @@ Follows MVC structure, where:
 
 
 ## To Do
-- Model
-  - [ ] employee (can have parent: person)
-  - [ ] resident (can have parent: person)
-  - [ ] shelter
-  - [ ] equipment
+- Model (double check tho)
+  - [x] employee (can have parent: person)
+  - [x] resident (can have parent: person)
+  - [x] shelter
+  - [x] equipment
   - [ ] response
 - View
   - [x] login (optional)
