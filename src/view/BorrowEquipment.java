@@ -1,7 +1,8 @@
 /**
  *  Notes:
  *  - unfinished
- *  - use JTable, JScrollPane, JComboBox (dropdown list)
+ *  - use JTable, JScrollPane, JComboBox (dropdown list), JCalendar
+ *  - try this: https://toedter.com/jcalendar/
 */
 
 package view;
