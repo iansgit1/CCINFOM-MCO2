@@ -1,6 +1,6 @@
 ## Read Me
 Hi guys! We can use this repo to collaboratively work on MCO2 DB App.
-I'm currently working on other UIs + figuring out how to connect to db.
+I'm currently figuring out how to connect to db.
 
 
 ## Folder Structure
@@ -20,6 +20,10 @@ Follows MVC structure, where:
     - AssignToSheleter.java : where resident can be assigned to an available shelter
     - BorrowEquipment.java : where users can borrow equipment
     - ReturnEquipment.jave : where users can return equipment
+    - ViewReports.java : where users can choose from the reports options
+    - ResponseReport.java : where users can see response reports
+    - SuccessMessage.java
+    - ErrorMessage.java
   - `controller`
 - `lib`: the folder to maintain dependencies
 - `bin`: the folder to compiled output files
@@ -29,6 +33,7 @@ Follows MVC structure, where:
 - I haven't made the changes based on ms' comments :)
 - I think transactions are still subject to change
 - Don't forget to error check (input validation)
+- UIs are mostly done but could be better
 
 
 ## To Do
@@ -42,18 +47,20 @@ Follows MVC structure, where:
 - View
   - [x] login (optional)
   - [x] transactions menu
-  - [ ] transaction 1:
+  - [x] transaction 1: rescue operation
   - [x] transaction 2: assignt to shelter
   - [x] transaction 3: release from shelter
   - [x] transaction 4: borrow equipment
   - [x] transaction 5: return equipment
   - [x] reports
-    - [ ] response report
+    - [x] response report
     - [ ] shelter occupancy report
     - [ ] equipment report
-  - [ ] success message
-  - [ ] fail message
+    - [ ] employee report
+  - [x] success message
+  - [x] fail message
 - Controller
+- Connect to DB
 
 
 ## Logs
@@ -62,6 +69,9 @@ Follows MVC structure, where:
 - Nov 11 (3PM) : finished AssignToShelter UI
 - Nov 11 (3:30PM) : finished ReleaseFromShelter UI
 - Nov 11 (10PM) : finished ViewReports UI
+- Nov 11 (11:30PM) : finished ResponseReport UI
+- Nov 12 (12AM) : finished RescueOperation UI
+- Nov 12 (12:45AM) : finished success and error message UIs
 
 
 ## Useful Stuff

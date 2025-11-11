@@ -3,8 +3,9 @@
  * 
  *  Note:
  *  - think of it as the first card in the deck
- *  - add other frames
- *  - when you go back, you get a new panel
+ *  - add other frames here
+ *  - fix this
+ *  - sorry medj magulo haha
 */
 
 package view;
@@ -22,12 +23,15 @@ public class MainFrame extends JFrame {
     /* OTHER FRAMES */
     private LoginFrame loginFrame = new LoginFrame();;
     private TransactionsMenu transactionsMenu = new TransactionsMenu();
+    private RescueOperation rescueOperation = new RescueOperation();
     private AssignToShelter assignToShelter = new AssignToShelter();
     private ReleaseFromShelter releaseFromShelter = new ReleaseFromShelter();
     private BorrowEquipment borrowEquipment = new BorrowEquipment();
     private ReturnEquipment returnEquipment = new ReturnEquipment();
     private ViewReports viewReports = new ViewReports();
     private ResponseReport responseReport = new ResponseReport();
+    private SuccessMessage successMessage = new SuccessMessage();
+    private ErrorMessage errorMessage = new ErrorMessage();
 
 
 
@@ -47,32 +51,63 @@ public class MainFrame extends JFrame {
         /* add frames to card layout */
         mainPanel.add(loginFrame, "login");
         mainPanel.add(transactionsMenu, "transactions");
+        mainPanel.add(rescueOperation, "rescue operation");
         mainPanel.add(assignToShelter, "assign to shelter");
         mainPanel.add(releaseFromShelter, "release from shelter");
         mainPanel.add(borrowEquipment, "borrow equipment");
         mainPanel.add(returnEquipment, "return equipment");
         mainPanel.add(viewReports, "view reports");
         mainPanel.add(responseReport, "response report");
-        // ADD : other transaction frames
+        mainPanel.add(successMessage, "success message");
+        mainPanel.add(errorMessage, "error message");
 
         /* redirections : this might be in controller instead of here */
+        /* from transactions menu */
         loginFrame.getLoginButton().addActionListener(e -> showTransactionsMenu());
+        transactionsMenu.getBtnT1().addActionListener(e -> showRescueOperationPane());
         transactionsMenu.getBtnT2().addActionListener(e -> showAssignToShelterPane());
         transactionsMenu.getBtnT3().addActionListener(e -> showReleaseFromShelterPane());
         transactionsMenu.getBtnT4().addActionListener(e -> showBorrowEquipmentPane());
         transactionsMenu.getBtnT5().addActionListener(e -> showReturnEquipmentPane());
         transactionsMenu.getBtnReports().addActionListener(e -> showViewReportsPane());
 
+        /* for back buttons in transactions */
+        rescueOperation.getBackButton().addActionListener(e -> showTransactionsMenu());
         assignToShelter.getBackButton().addActionListener(e -> showTransactionsMenu());
         releaseFromShelter.getBackButton().addActionListener(e -> showTransactionsMenu());
         borrowEquipment.getBackButton().addActionListener(e -> showTransactionsMenu());
         returnEquipment.getBackButton().addActionListener(e -> showTransactionsMenu());
         viewReports.getBackButton().addActionListener(e -> showTransactionsMenu());
 
+        /* success message redirection */
+        rescueOperation.getUpdateButton().addActionListener(e -> showSuccessMessagePane());
+        assignToShelter.getAssignButton().addActionListener(e -> showSuccessMessagePane());
+        releaseFromShelter.getReleaseButton().addActionListener(e -> showSuccessMessagePane());
+        borrowEquipment.getBorrowButton().addActionListener(e -> showSuccessMessagePane());
+        // returnEquipment.getReturnButton().addActionListener(e -> showSuccessMessagePane());
+
+        /* part 2 */
+        successMessage.getBackButton().addActionListener(e -> showTransactionsMenu());
+
+
+        /* fail message redirections */
+        // rescueOperation.getUpdateButton().addActionListener(e -> showErrorMessagePane());
+        // assignToShelter.getAssignButton().addActionListener(e -> showErrorMessagePane());
+        // releaseFromShelter.getReleaseButton().addActionListener(e -> showErrorMessagePane());
+        // borrowEquipment.getBorrowButton().addActionListener(e -> showErrorMessagePane());
+        returnEquipment.getReturnButton().addActionListener(e -> showErrorMessagePane());
+
+        /* error message redirections */
+        errorMessage.getBackButton().addActionListener(e -> showTransactionsMenu());
+        errorMessage.getRetryButton().addActionListener(e -> showResponseReportsPane());    // THIS IS WRONG; JUST A TEST
+
+        /* from view reports menu */
         viewReports.getResponseButton().addActionListener(e -> showResponseReportsPane());
 
+        /* for back buttons in reports */
         responseReport.getBackTransButton().addActionListener(e -> showTransactionsMenu());
 
+        /* reports to transactions menu */
         responseReport.getBackRepsButton().addActionListener(e -> showViewReportsPane());
 
         /* add mainPanel to Frame */
@@ -84,6 +119,11 @@ public class MainFrame extends JFrame {
     /* leads to transactions menu frame */
     private void showTransactionsMenu() {
         cardLayout.show(mainPanel, "transactions");
+    }
+
+    /* leads to assign to shelter pane */
+    private void showRescueOperationPane() {
+        cardLayout.show(mainPanel, "rescue operation");
     }
 
     /* leads to assign to shelter pane */
@@ -114,5 +154,15 @@ public class MainFrame extends JFrame {
     /* leads to response reports pane */
     private void showResponseReportsPane() {
         cardLayout.show(mainPanel, "response report");
+    }
+
+    /* leads to success message pane */
+    private void showSuccessMessagePane() {
+        cardLayout.show(mainPanel, "success message");
+    }
+
+    /* leads to success message pane */
+    private void showErrorMessagePane() {
+        cardLayout.show(mainPanel, "error message");
     }
 }

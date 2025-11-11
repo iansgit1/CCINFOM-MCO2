@@ -62,12 +62,6 @@ public class BorrowEquipment extends JPanel {
         buttonPanel.add(returnButton, gbcButtons);
         gbcButtons.gridx = 2;
 
-        /* STOPPED HERE : success pop up */
-        // JPanel successMessagePanel = new JPanel(new BorderLayout());
-        // JLabel successMessage = new JLabel("Equipment successfully borrowed!");
-        // JButton sBackButton = new JButton("Back to Transactions Menu");
-        // JB
-
         /* table panel */
         JPanel tablePanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         equipmentTable = new JTable(sample, colNames);
