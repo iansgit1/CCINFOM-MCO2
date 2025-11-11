@@ -14,12 +14,12 @@ Follows MVC structure, where:
     - Equipment.java
     - Shelter.java
   - `view`
-    - MainFrame.java          | where all panels are called
-    - LoginFrame.jave         | where users (employees) can log in
-    - TransactionsMenu.java   | where users can choose from the transaction options
-    - AssignToSheleter.java   | where resident can be assigned to an available shelter
-    - BorrowEquipment.java    | where users can borrow equipment
-    - ReturnEquipment.jave    | where users can return equipment
+    - MainFrame.java : where all panels are called
+    - LoginFrame.jave : where users (employees) can log in
+    - TransactionsMenu.java : where users can choose from the transaction options
+    - AssignToSheleter.java : where resident can be assigned to an available shelter
+    - BorrowEquipment.java : where users can borrow equipment
+    - ReturnEquipment.jave : where users can return equipment
   - `controller`
 - `lib`: the folder to maintain dependencies
 - `bin`: the folder to compiled output files
@@ -38,24 +38,29 @@ Follows MVC structure, where:
   - [x] shelter
   - [x] equipment
   - [ ] response
+  - [ ] disaster
 - View
   - [x] login (optional)
   - [x] transactions menu
   - [ ] transaction 1:
-  - [ ] transaction 2:
-  - [ ] transaction 3:
+  - [x] transaction 2: assignt to shelter
+  - [x] transaction 3: release from shelter
   - [x] transaction 4: borrow equipment
   - [x] transaction 5: return equipment
   - [ ] reports
     - [ ] response report
     - [ ] shelter occupancy report
     - [ ] equipment report
+  - [ ] success message
+  - [ ] fail message
 - Controller
 
 
 ## Logs
-[Nov 10 (8PM)] : finished BorrowEquipment UI
-[Nov 10 (8:20PM)] : finished ReturnEquipment UI
+- Nov 10 (8PM) : finished BorrowEquipment UI
+- Nov 10 (8:20PM) : finished ReturnEquipment UI
+- Nov 11 (3PM) : finished AssignToShelter UI
+- Nov 12 (3:30PM) : finished ReleaseFromShelter UI
 
 
 ## Useful Stuff

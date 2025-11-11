@@ -10,13 +10,15 @@ package view;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.*;
 
 import model.Equipment;
 
 
 public class BorrowEquipment extends JPanel {
     /* ATTRIBUTES */
-    private Equipment[] equipment;
+    private ArrayList<Equipment> equipment;
+    
     // NOTE : these should come from the database; remove sometime soon
     String[] colNames = new String[] {"Equipment Name", "Quantity", "Availability"};
     String[][] sample = new String[][] {{"Medical Kits", "2", "Available"},
@@ -30,11 +32,6 @@ public class BorrowEquipment extends JPanel {
     private JTable equipmentTable;
     private JButton backButton = new JButton();
     private JButton returnButton = new JButton();
-
-
-    public static final String equipmentlbl = "Equipment Name";
-    public static final String quantitylbl = "Quantity";
-    public static final String availabilitylbl = "Availability";
 
 
     public BorrowEquipment() {

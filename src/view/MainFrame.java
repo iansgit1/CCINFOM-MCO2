@@ -4,6 +4,7 @@
  *  Note:
  *  - think of it as the first card in the deck
  *  - add other frames
+ *  - when you go back, you get a new panel
 */
 
 package view;
@@ -19,10 +20,12 @@ public class MainFrame extends JFrame {
 
 
     /* OTHER FRAMES */
-    private LoginFrame loginFrame;
-    private TransactionsMenu transactionsMenu;
-    private BorrowEquipment borrowEquipment;
-    private ReturnEquipment returnEquipment;
+    private LoginFrame loginFrame = new LoginFrame();;
+    private TransactionsMenu transactionsMenu = new TransactionsMenu();
+    private AssignToShelter assignToShelter = new AssignToShelter();
+    private ReleaseFromShelter releaseFromShelter = new ReleaseFromShelter();
+    private BorrowEquipment borrowEquipment = new BorrowEquipment();
+    private ReturnEquipment returnEquipment = new ReturnEquipment();
 
 
 
@@ -39,24 +42,24 @@ public class MainFrame extends JFrame {
         cardLayout = new CardLayout();
         mainPanel = new JPanel(cardLayout);
 
-        /* initialize frames */
-        loginFrame = new LoginFrame();
-        transactionsMenu = new TransactionsMenu();
-        borrowEquipment = new BorrowEquipment();
-        returnEquipment = new ReturnEquipment();
-        // ADD : individual transaction frames
-
         /* add frames to card layout */
         mainPanel.add(loginFrame, "login");
         mainPanel.add(transactionsMenu, "transactions");
+        mainPanel.add(assignToShelter, "assign to shelter");
+        mainPanel.add(releaseFromShelter, "release from shelter");
         mainPanel.add(borrowEquipment, "borrow equipment");
         mainPanel.add(returnEquipment, "return equipment");
         // ADD : other transaction frames
 
         /* redirections : this might be in controller instead of here */
         loginFrame.getLoginButton().addActionListener(e -> showTransactionsMenu());
+        transactionsMenu.getBtnT2().addActionListener(e -> showAssignToShelterPane());
+        transactionsMenu.getBtnT3().addActionListener(e -> showReleaseFromShelterPane());
         transactionsMenu.getBtnT4().addActionListener(e -> showBorrowEquipmentPane());
         transactionsMenu.getBtnT5().addActionListener(e -> showReturnEquipmentPane());
+
+        assignToShelter.getBackButton().addActionListener(e -> showTransactionsMenu());
+        releaseFromShelter.getBackButton().addActionListener(e -> showTransactionsMenu());
         borrowEquipment.getBackButton().addActionListener(e -> showTransactionsMenu());
         returnEquipment.getBackButton().addActionListener(e -> showTransactionsMenu());
 
@@ -69,6 +72,16 @@ public class MainFrame extends JFrame {
     /* leads to transactions menu frame */
     private void showTransactionsMenu() {
         cardLayout.show(mainPanel, "transactions");
+    }
+
+    /* leads to assign to shelter pane */
+    private void showAssignToShelterPane() {
+        cardLayout.show(mainPanel, "assign to shelter");
+    }
+
+    /* leads to release from shelter pane */
+    private void showReleaseFromShelterPane() {
+        cardLayout.show(mainPanel, "release from shelter");
     }
 
     /* leads to borrow equipment pane */

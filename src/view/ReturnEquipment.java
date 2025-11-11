@@ -11,30 +11,30 @@ package view;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.*;
 
+import model.Employee;
 import model.Equipment;
 
 
 public class ReturnEquipment extends JPanel {
     /* ATTRIBUTES */
-    private Equipment[] equipment;
-    // NOTE : these should come from the database; remove sometime soon
-    String[] colNames = new String[] {"Equipment Name", "Quantity", "Availability"};
-    String[][] sample = new String[][] {{"Medical Kits", "2", "Available"},
-                                        {"Ambulance", "0", "Not Available"},
-                                        {"Life Vests", "3", "Available"},
-                                        {"FlashLight", "1", "Available"}};
-
+    private ArrayList<Equipment> equipment;
 
     /* UI COMPONENTS */
     private JLabel titleLabel = new JLabel();
     private JButton backButton = new JButton();
     private JButton returnButton = new JButton();
 
+    JLabel itemLabel = new JLabel();
+    JLabel qtyLabel = new JLabel();
+    JLabel borrowerLabel = new JLabel();
+    JLabel dateLabel = new JLabel();
 
-    public static final String equipmentlbl = "Equipment Name";
-    public static final String quantitylbl = "Quantity";
-    public static final String availabilitylbl = "Availability";
+    JComboBox itemField = new JComboBox<>();  
+    JTextField qtyField = new JTextField();                       // NOTE : add input validation
+    JComboBox borrowerField = new JComboBox<>();                 // NOTE : change this too; it should come from the db; it should be Resident<>
+    JTextField dateField = new JTextField();
 
 
     public ReturnEquipment() {
@@ -71,21 +71,17 @@ public class ReturnEquipment extends JPanel {
         gbcSpecs.insets = new Insets(10, 10, 10, 10);
         gbcSpecs.anchor = GridBagConstraints.WEST;
 
-        JLabel itemLabel = new JLabel("Item:");
-        JComboBox itemField = new JComboBox<Equipment[]>();                     // NOTE : change this too; it should come from the db
+        itemLabel.setText("Item:");
         itemField.setPreferredSize(new Dimension(255, 25));
-        // JTextField itemField = new JTextField(20);                           // aternative
 
-        JLabel qtyLabel = new JLabel("Quantity:");
-        JTextField qtyField = new JTextField(20);                       // NOTE : add input validation
+        qtyLabel.setText("Quantity:");
+        qtyField.setColumns(20);                                        // NOTE : add input validation
 
-        JLabel borrowerLabel = new JLabel("Borrower:");
-        JComboBox borrowerField = new JComboBox<Equipment[]>();                 // NOTE : change this too; it should come from the db; it should be Resident<>
+        borrowerLabel.setText("Borrower:");
         borrowerField.setPreferredSize(new Dimension(255, 25));
-        // JTextField borrowerField = new JTextField(20);                       // alternative -> should have input validation
 
-        JLabel dateLabel = new JLabel("Date (dd/MM/yyy):");
-        JTextField dateField = new JTextField(20);
+        dateLabel.setText("Date (dd/MM/yyy):");
+        dateField.setColumns(20);
 
         gbcSpecs.gridx = 0; 
         gbcSpecs.gridy = 0;

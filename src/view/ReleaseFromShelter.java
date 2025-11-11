@@ -1,6 +1,6 @@
 /**
- *  This contains the Assign Resident to Shelter panel, where users (employees) can assign
- *  residents to shelters by specifying the resident's ID, the shelter's ID, the current date,
+ *  This contains the Release Resident from Shelter panel, where users (employees) can release
+ *  residents from the shelter by specifying the resident's ID, the shelter's ID, the current date,
  *  the current time, and the employee assigned for accounting purposes.
  * 
  *  Notes:
@@ -13,18 +13,19 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.*;
 
-import model.Employee;
+import model.Resident;
 
-public class AssignToShelter extends JPanel {
+public class ReleaseFromShelter extends JPanel {
     /* attributes */
-    private ArrayList<Employee> employees;
+    private ArrayList<Resident> resident;
 
     /* UI components */
-    private JLabel titleLabel = new JLabel("Assign Resident to Shelter");
+    private JLabel titleLabel = new JLabel("Release Resident from Shelter");
     private JButton backButton = new JButton("Back");
-    private JButton assignButton = new JButton("Assign");
+    private JButton releaseButton = new JButton("Release");
 
-    public AssignToShelter() {
+    /* constructor */
+    public ReleaseFromShelter() {
         /* panel settings */
         setLayout(new BorderLayout());
         setBackground(Color.WHITE);
@@ -34,7 +35,7 @@ public class AssignToShelter extends JPanel {
         titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
         titleLabel.setForeground(Color.BLACK);
         titlePanel.add(titleLabel);
-
+        
         /* buttons panel */
         JPanel buttonPanel = new JPanel(new GridBagLayout());
         GridBagConstraints gbcButtons = new GridBagConstraints();
@@ -45,7 +46,7 @@ public class AssignToShelter extends JPanel {
 
         buttonPanel.add(backButton, gbcButtons);
         gbcButtons.gridx = 1;
-        buttonPanel.add(assignButton, gbcButtons);
+        buttonPanel.add(releaseButton, gbcButtons);
         gbcButtons.gridx = 2;
 
         /* specifications panel */
@@ -106,12 +107,12 @@ public class AssignToShelter extends JPanel {
         add(titlePanel, BorderLayout.NORTH);
         add(buttonPanel, BorderLayout.SOUTH);
     }
-
+    
     public JButton getBackButton() {
         return backButton;
     }
 
-    public JButton getAssignButton() {
-        return assignButton;
+    public JButton getReleaseButton() {
+        return releaseButton;
     }
 }

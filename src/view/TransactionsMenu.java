@@ -50,7 +50,7 @@ public class TransactionsMenu extends JPanel {
         setupButton(btnT1);
         setupButton(btnT2);
         setupButton(btnT3);
-        setupButton(btnT4);                                                     // borrow equipment
+        setupButton(btnT4);                                                  
         setupButton(btnT5);
         setupButton(btnReports);
 
