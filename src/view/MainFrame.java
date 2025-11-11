@@ -26,6 +26,7 @@ public class MainFrame extends JFrame {
     private ReleaseFromShelter releaseFromShelter = new ReleaseFromShelter();
     private BorrowEquipment borrowEquipment = new BorrowEquipment();
     private ReturnEquipment returnEquipment = new ReturnEquipment();
+    private ViewReports viewReports = new ViewReports();
 
 
 
@@ -49,6 +50,7 @@ public class MainFrame extends JFrame {
         mainPanel.add(releaseFromShelter, "release from shelter");
         mainPanel.add(borrowEquipment, "borrow equipment");
         mainPanel.add(returnEquipment, "return equipment");
+        mainPanel.add(viewReports, "view reports");
         // ADD : other transaction frames
 
         /* redirections : this might be in controller instead of here */
@@ -57,11 +59,13 @@ public class MainFrame extends JFrame {
         transactionsMenu.getBtnT3().addActionListener(e -> showReleaseFromShelterPane());
         transactionsMenu.getBtnT4().addActionListener(e -> showBorrowEquipmentPane());
         transactionsMenu.getBtnT5().addActionListener(e -> showReturnEquipmentPane());
+        transactionsMenu.getBtnReports().addActionListener(e -> showViewReportsPane());
 
         assignToShelter.getBackButton().addActionListener(e -> showTransactionsMenu());
         releaseFromShelter.getBackButton().addActionListener(e -> showTransactionsMenu());
         borrowEquipment.getBackButton().addActionListener(e -> showTransactionsMenu());
         returnEquipment.getBackButton().addActionListener(e -> showTransactionsMenu());
+        viewReports.getBackButton().addActionListener(e -> showTransactionsMenu());
 
         /* add mainPanel to Frame */
         add(mainPanel);
@@ -92,5 +96,10 @@ public class MainFrame extends JFrame {
     /* leads to return equipment pane */
     private void showReturnEquipmentPane() {
         cardLayout.show(mainPanel, "return equipment");
+    }
+
+    /* leads to view reports pane */
+    private void showViewReportsPane() {
+        cardLayout.show(mainPanel, "view reports");
     }
 }

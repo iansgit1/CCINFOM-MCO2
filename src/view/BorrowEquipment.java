@@ -18,7 +18,7 @@ import model.Equipment;
 public class BorrowEquipment extends JPanel {
     /* ATTRIBUTES */
     private ArrayList<Equipment> equipment;
-    
+
     // NOTE : these should come from the database; remove sometime soon
     String[] colNames = new String[] {"Equipment Name", "Quantity", "Availability"};
     String[][] sample = new String[][] {{"Medical Kits", "2", "Available"},
@@ -61,6 +61,12 @@ public class BorrowEquipment extends JPanel {
         gbcButtons.gridx = 1;
         buttonPanel.add(returnButton, gbcButtons);
         gbcButtons.gridx = 2;
+
+        /* STOPPED HERE : success pop up */
+        // JPanel successMessagePanel = new JPanel(new BorderLayout());
+        // JLabel successMessage = new JLabel("Equipment successfully borrowed!");
+        // JButton sBackButton = new JButton("Back to Transactions Menu");
+        // JB
 
         /* table panel */
         JPanel tablePanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
