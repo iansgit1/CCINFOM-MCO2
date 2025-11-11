@@ -31,9 +31,9 @@ public class ReturnEquipment extends JPanel {
     JLabel borrowerLabel = new JLabel();
     JLabel dateLabel = new JLabel();
 
-    JComboBox itemField = new JComboBox<>();  
+    JComboBox<String> itemField = new JComboBox<>();  
     JTextField qtyField = new JTextField();                       // NOTE : add input validation
-    JComboBox borrowerField = new JComboBox<>();                 // NOTE : change this too; it should come from the db; it should be Resident<>
+    JComboBox<String> borrowerField = new JComboBox<>();                 // NOTE : change this too; it should come from the db; it should be Resident<>
     JTextField dateField = new JTextField();
 
 

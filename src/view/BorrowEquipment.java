@@ -82,7 +82,7 @@ public class BorrowEquipment extends JPanel {
         gbcSpecs.anchor = GridBagConstraints.WEST;
 
         JLabel itemLabel = new JLabel("Item:");
-        JComboBox itemField = new JComboBox<>(sample);                              // NOTE : change this too; it should come from the db
+        JComboBox<String> itemField = new JComboBox<String>();                              // NOTE : change this too; it should come from the db
         itemField.setPreferredSize(new Dimension(255, 25));
         // JTextField itemField = new JTextField(20);                               // aternative
 
@@ -90,7 +90,7 @@ public class BorrowEquipment extends JPanel {
         JTextField qtyField = new JTextField(20);                           // NOTE : add input validation
 
         JLabel borrowerLabel = new JLabel("Borrower:");
-        JComboBox borrowerField = new JComboBox<>(sample);                          // NOTE : change this too; it should come from the db
+        JComboBox<String> borrowerField = new JComboBox<String>();                          // NOTE : change this too; it should come from the db
         borrowerField.setPreferredSize(new Dimension(255, 25));
         // JTextField borrowerField = new JTextField(20);                           // alternative -> should have input validation
 

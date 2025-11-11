@@ -1,6 +1,6 @@
 ## Read Me
 Hi guys! We can use this repo to collaboratively work on MCO2 DB App.
-I'm currently making the wireframes for the other transactions' wireframes.
+I'm currently working on other UIs + figuring out how to connect to db.
 
 
 ## Folder Structure
@@ -47,7 +47,7 @@ Follows MVC structure, where:
   - [x] transaction 3: release from shelter
   - [x] transaction 4: borrow equipment
   - [x] transaction 5: return equipment
-  - [ ] reports
+  - [x] reports
     - [ ] response report
     - [ ] shelter occupancy report
     - [ ] equipment report
@@ -60,7 +60,8 @@ Follows MVC structure, where:
 - Nov 10 (8PM) : finished BorrowEquipment UI
 - Nov 10 (8:20PM) : finished ReturnEquipment UI
 - Nov 11 (3PM) : finished AssignToShelter UI
-- Nov 12 (3:30PM) : finished ReleaseFromShelter UI
+- Nov 11 (3:30PM) : finished ReleaseFromShelter UI
+- Nov 11 (10PM) : finished ViewReports UI
 
 
 ## Useful Stuff

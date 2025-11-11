@@ -68,7 +68,7 @@ public class ReleaseFromShelter extends JPanel {
         JTextField timeField = new JTextField(20);
         
         JLabel employeeAssignedLabel = new JLabel("Employee Assigned:");
-        JComboBox employeeAssignedField = new JComboBox<>();                                    // NOTE : change this too; it should come from the db
+        JComboBox<String> employeeAssignedField = new JComboBox<>();                                    // NOTE : change this too; it should come from the db
         employeeAssignedField.setPreferredSize(new Dimension(255, 25));
 
         gbcSpecs.gridx = 0; 

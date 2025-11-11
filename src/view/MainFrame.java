@@ -27,6 +27,7 @@ public class MainFrame extends JFrame {
     private BorrowEquipment borrowEquipment = new BorrowEquipment();
     private ReturnEquipment returnEquipment = new ReturnEquipment();
     private ViewReports viewReports = new ViewReports();
+    private ResponseReport responseReport = new ResponseReport();
 
 
 
@@ -51,6 +52,7 @@ public class MainFrame extends JFrame {
         mainPanel.add(borrowEquipment, "borrow equipment");
         mainPanel.add(returnEquipment, "return equipment");
         mainPanel.add(viewReports, "view reports");
+        mainPanel.add(responseReport, "response report");
         // ADD : other transaction frames
 
         /* redirections : this might be in controller instead of here */
@@ -66,6 +68,12 @@ public class MainFrame extends JFrame {
         borrowEquipment.getBackButton().addActionListener(e -> showTransactionsMenu());
         returnEquipment.getBackButton().addActionListener(e -> showTransactionsMenu());
         viewReports.getBackButton().addActionListener(e -> showTransactionsMenu());
+
+        viewReports.getResponseButton().addActionListener(e -> showResponseReportsPane());
+
+        responseReport.getBackTransButton().addActionListener(e -> showTransactionsMenu());
+
+        responseReport.getBackRepsButton().addActionListener(e -> showViewReportsPane());
 
         /* add mainPanel to Frame */
         add(mainPanel);
@@ -101,5 +109,10 @@ public class MainFrame extends JFrame {
     /* leads to view reports pane */
     private void showViewReportsPane() {
         cardLayout.show(mainPanel, "view reports");
+    }
+
+    /* leads to response reports pane */
+    private void showResponseReportsPane() {
+        cardLayout.show(mainPanel, "response report");
     }
 }
