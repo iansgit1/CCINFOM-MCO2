@@ -10,6 +10,11 @@ public class Resident extends Person {
 
     }
 
+    public Resident(int residentID, String lastName, String firstName, String middleName, String gender, Date dateOfBirth, String civilStatus, int contactNumber, String address) {
+        super(lastName, firstName, middleName, gender, dateOfBirth, civilStatus, contactNumber, address);
+        this.residentID = residentID;
+    }
+    
 
     /* GETTERS & SETTERS */
     public int getResidentID() {
@@ -22,5 +27,12 @@ public class Resident extends Person {
 
 
     /* METHODS */
+
+    /*
+    *    public String viewProfile() {
+    *
+    *    }
+    */
+    
 
 }
